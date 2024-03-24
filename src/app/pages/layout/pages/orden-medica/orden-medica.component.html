@@ -1,0 +1,285 @@
+<h1 class="title-view">Ordenes Medicas</h1>
+
+<div class="container">
+  <div class="form-gestion">
+    <form [formGroup]="formularioEmpleado">
+      <div class="row g-1">
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Almacen</label>
+          <select class="form-select" aria-label="Default select example">
+            @for (a of almacenes ; track a.codalm) {
+            <option [value]="a.codalm">{{ a.resalm }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Paciente</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            (change)="PacienteSeleccionado($event)"
+          >
+            @for (a of pacientes ; track a.documento) {
+            <option [value]="a.documento">{{ a.nombre }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-3">
+          <label class="form-label">Fecha Nac</label>
+          <input formControlName="fechaNacimiento" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-lg-3">
+          <label class="form-label">Fecha</label>
+          <input formControlName="fechaInicio" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-lg-1">
+          <label class="form-label">Edad</label>
+          <input formControlName="edad" class="form-control" />
+        </div>
+        <div class="col-sm-3 col-lg-1">
+          <label class="form-label">Sexo</label>
+          <input formControlName="sexo" class="form-control" />
+        </div>
+        <div class="col-sm-3 col-lg-3">
+          <label class="form-label">Historial No</label>
+          <input formControlName="nombre" class="form-control" />
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Empresa</label>
+          <input class="form-control" />
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <label class="form-label">Direccion</label>
+          <input formControlName="direccion" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+          <label class="form-label">Telefono</label>
+          <input formControlName="telefono" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+          <label class="form-label">Nivel de UCI</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="form-label">Tiempo de UCI</label>
+          <input class="form-control" />
+        </div>
+        <div class="col-3">
+          <label class="form-label">Medico</label>
+          <select class="form-select" aria-label="Default select example">
+            @for (a of medicos ; track a.codigo) {
+            <option [value]="a.codigo">{{ a.nombre }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="cont-medicamentos">
+    <div class="row" style="padding-bottom: 10px">
+      <div class="col-2">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Medicamentos
+        </button>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Presentacion</th>
+          <th scope="col">Via</th>
+          <th scope="col">Factor D</th>
+          <th scope="col">Dess</th>
+          <th scope="col">Und</th>
+          <th scope="col">Horas</th>
+          <th scope="col">No.Desis</th>
+          <th scope="col">Descripcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (a of ListaMedicamentosSeleccionados ; track a.CODPSS) {
+        <tr>
+          <th scope="row">{{ a.CODPSS }}</th>
+          <td>{{ a.NOMGENERICO.substring(0,9) }}</td>
+          <td>{{ a.CODPSS }}</td>
+          <td>{{ a.CODPSS }}</td>
+          <td>{{ a.CODPSS }}</td>
+          <td>{{ a.DOSIS }}</td>
+          <td>{{ a.UNDMED }}</td>
+          <td>{{ a.CODPSS }}</td>
+          <td>{{ a.CODPSS }}</td>
+          <td>cura la gripe</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="cont-procedimiento">
+    <div class="row" style="padding-bottom: 10px">
+      <div class="col-2">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-procedimientos"
+        >
+          Procedimiento
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-primary text-center title">
+      <h2>PROCEDIMIENTOS</h2>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nombre del procedimiento</th>
+          <th scope="col">No Veces</th>
+          <th scope="col">Observaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (a of ListaProcedimientosSeleccionados ; track a.codigo) {
+        <tr>
+          <th scope="row">{{ a.codigo }}</th>
+          <td>{{ a.nombre }}</td>
+          <td>{{ a.veses }}</td>
+          <td>{{ a.obs }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal Medicamentos -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Listado de Medicamentos
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codido</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (a of medicamentos ; track a.CODPSS) {
+            <tr
+              (click)="
+                Medicamento_Procedimiento_Selecicionado(a, 'medicamentos')
+              "
+            >
+              <th scope="row">{{ a.CODPSS }}</th>
+              <td>{{ a.NOMGENERICO }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Procedimientos -->
+<div
+  class="modal fade"
+  id="modal-procedimientos"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Listado de Procedimientos
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codido</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (a of procedimientos ; track a.codigo) {
+            <tr
+              (click)="
+                Medicamento_Procedimiento_Selecicionado(a, 'procedimiento')
+              "
+            >
+              <th scope="row">{{ a.codigo }}</th>
+              <td>{{ a.nombre }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 
+
+
+  <modal-medicamentos
+  *ngIf="active"
+  (addFavoriteEvent)="mediSelec($event)"
+  (closeModal)="close()"
+  [active]="active"
+></modal-medicamentos>
+ -->

@@ -1,0 +1,104 @@
+<h1 class="title-view">Remision de Pacientes</h1>
+
+<div class="container">
+  <div class="form-gestion">
+    <form [formGroup]="formularioEmpleado">
+      <div class="row g-1">
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Paciente</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            (change)="PacienteSeleccionado($event)"
+          >
+            @for (a of pacientes ; track a.documento) {
+            <option [value]="a.documento">{{ a.nombre }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Fecha Nac</label>
+          <input formControlName="fechaNacimiento" class="form-control" />
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Edad</label>
+          <input formControlName="edad" class="form-control" />
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Sexo</label>
+          <input formControlName="sexo" class="form-control" />
+        </div>
+
+        <div class="col-sm-12 col-lg-5">
+          <label class="form-label">Direccion</label>
+          <input formControlName="nombre" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-lg-2">
+          <label class="form-label">Telefono</label>
+          <input class="form-control" />
+        </div>
+        <div class="col-sm-8 col-lg-5">
+          <label class="form-label">Empresa</label>
+          <input formControlName="direccion" class="form-control" />
+        </div>
+
+        <div class="col-sm-12 col-lg-3">
+          <label class="form-label">Medico</label>
+          <select class="form-select" aria-label="Default select example">
+            @for (a of medicos ; track a.codigo) {
+            <option [value]="a.codigo">{{ a.nombre }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+          <label class="form-label">D. de egreso</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Fecha Ingreso</label>
+          <input class="form-control" />
+        </div>
+
+        <div class="col-sm-6 col-lg-6">
+          <label class="form-label">Situacion</label>
+          <select class="form-select" aria-label="Default select example">
+            @for (a of medicos ; track a.codigo) {
+            <option [value]="a.codigo">{{ a.nombre }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <label class="form-label">Tiempo Transcurrido desde el ingreso</label>
+          <input class="form-control" />
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <label class="form-label">Clinica</label>
+          <input class="form-control" />
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Fecha Salida</label>
+          <input class="form-control" />
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <label class="form-label">Dia de estancia</label>
+          <input class="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row mt-5">
+    <textarea class="form-control" rows="5"></textarea>
+  </div>
+</div>

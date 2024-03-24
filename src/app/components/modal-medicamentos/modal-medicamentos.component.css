@@ -1,0 +1,39 @@
+h1 {
+  margin: 0;
+  font-size: 20px;
+}
+.cont-modal {
+  position: fixed;
+
+  width: 100%;
+  height: 100vh;
+  background-color: gray;
+  top: -100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-form {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header-modal {
+  padding: 16px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.modal-body {
+  padding: 16px;
+}
+.modal-footer {
+  padding: 0 16px 16px 16px;
+}
+
+
+.active{
+  top: 0;
+  transition: all .3s;
+}

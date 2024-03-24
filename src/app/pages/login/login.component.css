@@ -1,0 +1,79 @@
+html {
+  font-size: 16px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.container {
+  background-color: #f8f8f8;
+  padding: 30px;
+}
+.cont-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container .detail-login h1 {
+  font-size: 2rem;
+}
+
+.form-login {
+  background-color: lavender;
+  padding: 40px;
+  border-radius: 20px;
+  width: 500px;
+}
+.form-login h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.form-login p {
+  font-size: 13px;
+  color: #99a1b7;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-control {
+  font-weight: 500;
+  color: #4b5675;
+  padding: 15px 10px;
+}
+
+.forgot {
+  display: flex;
+  justify-content: right;
+}
+
+.forgot p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #8ed1fc;
+  border-color:#8ed1fc;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.container-grid div {
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+}

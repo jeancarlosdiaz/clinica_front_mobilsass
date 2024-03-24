@@ -1,0 +1,74 @@
+.container {
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+
+.card {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  background-color: #11101d;
+  color: white;
+  transform: scale(1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card i {
+  font-size: 50px;
+}
+
+.count-bed {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  color: white;
+  border-radius: 50%;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-camas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.header-camas .circle {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.rojo {
+  color: red;
+}
+
+.azul {
+  color: blue;
+}
+.verde {
+  color: green;
+}

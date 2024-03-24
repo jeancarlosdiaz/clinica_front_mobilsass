@@ -1,0 +1,28 @@
+<div class="cont-modal" [class.active]="active == true">
+  <div class="modal-form">
+    <div class="header-modal">
+      <h1>Listado de Medicamentos</h1>
+    </div>
+    <div class="modal-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Codido</th>
+            <th scope="col">Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (a of medicamentos ; track a.CODPSS) {
+          <tr (click)="sendDad(a)">
+            <th scope="row">{{ a.CODPSS }}</th>
+            <td>{{ a.NOMGENERICO }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" (click)="close()">Cerrar</button>
+    </div>
+  </div>
+</div>

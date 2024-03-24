@@ -1,0 +1,65 @@
+<div class="nav-menu">
+  <div>
+    <img src="../../../assets/logo.jpg" class="logo" />
+  </div>
+  <i class="bx bx-menu" (click)="menu()"></i>
+</div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="menu-bar">
+      <div class="menu">
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a routerLink="/pages/paciente">
+              <i class="bx bx-user-plus icon"></i>
+              <span class="text nav-text">Paciente</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a routerLink="/pages/hospitalizacion">
+              <i class="bx bx-plus-medical icon"></i>
+              <span class="text nav-text">Hospitalización </span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a routerLink="/pages/ordenes">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="text nav-text">Órden médica</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a routerLink="/pages/remision">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="text nav-text">Remisión Paciente</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a routerLink="/pages/camas">
+              <i class="bx bx-bed icon"></i>
+              <span class="text nav-text">Camas</span>
+            </a>
+          </li>
+
+          <div class="footer-sidebar">
+            <li class="nav-link out">
+              <a routerLink="/pages/paciente">
+                <i class="bx bxs-edit-alt icon"></i>
+                <span class="text nav-text">Perfil</span>
+              </a>
+            </li>
+            <li class="nav-link out">
+              <a routerLink="/pages/paciente">
+                <i class="bx bx-log-out icon"></i>
+                <span class="text nav-text">Cerrar Sesion</span>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-layout">
+    <router-outlet></router-outlet>
+  </div>
+</div>

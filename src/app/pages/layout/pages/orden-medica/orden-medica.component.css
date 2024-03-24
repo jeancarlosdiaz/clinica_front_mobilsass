@@ -1,0 +1,18 @@
+
+.form-gestion .row div {
+  padding: 0 5px;
+}
+
+.cont-medicamentos {
+  margin-top: 10px;
+}
+
+.cont-procedimiento .title {
+  font-size: 18px;
+  padding: 5px 0;
+  color: white;
+}
+.cont-procedimiento .title h2 {
+  font-size: 18px;
+  margin: 0;
+}
