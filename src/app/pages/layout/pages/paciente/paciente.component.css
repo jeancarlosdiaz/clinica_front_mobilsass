@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+}
+mat-card {
+  padding: 16px 16px;
+}
+
+.btn {
+  background-color: #8ed1fc;
+}
+
+mat-card-title {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+mat-card-content{
+    padding: 0 !important;
+}
