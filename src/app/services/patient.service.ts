@@ -17,6 +17,9 @@ export class PatientService {
   List(): Observable<ResponseApi> {
     return this.http.get<ResponseApi>(`${this.urlApiDeveloper}List`);
   }
+  Delete(obj:any): Observable<ResponseApi> {
+    return this.http.post<ResponseApi>(`${this.urlApiDeveloper}Delete` , obj);
+  }
   
   Register(model:Paciente): Observable<ResponseApi> {
     return this.http.post<ResponseApi>(`${this.urlApiDeveloper}Register` , model);
