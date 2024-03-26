@@ -17,11 +17,15 @@ export class PatientService {
   List(): Observable<ResponseApi> {
     return this.http.get<ResponseApi>(`${this.urlApiDeveloper}List`);
   }
+  
   Delete(obj:any): Observable<ResponseApi> {
-    return this.http.post<ResponseApi>(`${this.urlApiDeveloper}Delete` , obj);
+    return this.http.post<ResponseApi>(`${this.urlApiProduction}Delete` , obj);
   }
   
   Register(model:Paciente): Observable<ResponseApi> {
-    return this.http.post<ResponseApi>(`${this.urlApiDeveloper}Register` , model);
+    return this.http.post<ResponseApi>(`${this.urlApiProduction}Register` , model);
+  }
+  Editar(model:Paciente): Observable<ResponseApi> {
+    return this.http.post<ResponseApi>(`${this.urlApiDeveloper}Editar` , model);
   }
 }

@@ -75,7 +75,7 @@ export class PacienteComponent implements OnInit {
 
   editar(paciente: any) {
     this.dialog
-      .open(ModalPatientComponent)
+      .open(ModalPatientComponent , {data:paciente})
       .afterClosed()
       .subscribe((resultado) => {
         if (resultado === 'true') this.ListPatient();

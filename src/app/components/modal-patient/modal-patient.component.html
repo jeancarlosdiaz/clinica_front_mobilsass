@@ -15,35 +15,53 @@
       </div>
       <div class="col-3 col-sm-6 col-lg-3">
         <label class="form-label">Fecha y Hora Registro</label>
-        <input class="form-control" />
+        <input [value]="fechaInicio" class="form-control" />
       </div>
-      <div class="col-3 col-sm-6 col-lg-3">
-        <label class="form-label">Tipo</label>
-        <select class="form-select" aria-label="Default select example">
-          <option selected></option>
-          <option value="1">Nacido</option>
-          <option value="0">Con identificacion</option>
-        </select>
+      <div
+        class="col-3 col-sm-6 col-lg-6"
+        style="
+          display: flex;
+          border: 1px solid gainsboro;
+          border-radius: 4px;
+          align-items: center;
+          justify-content: flex-end;
+        "
+      >
+        <mat-radio-group aria-label="Select an option" (click)="change($event)">
+          <mat-radio-button value="1">Recien Nacido</mat-radio-button>
+          <mat-radio-button value="0">Con identidad</mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
     <div class="row mb-2">
+      <div *ngIf="nacido == true" class="col-sm-6 col-lg-3">
+        <label class="form-label">HIJO DE</label>
+        <input value="HIJO DE" class="form-control" />
+      </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Primer Apellido</label>
         <input formControlName="ap1pac" class="form-control" />
       </div>
+
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Segundo Apellido</label>
         <input formControlName="ap2pac" class="form-control" />
       </div>
-      <div class="col-sm-6 col-lg-3">
+
+      <div *ngIf="nacido == false" class="col-sm-6 col-lg-3">
         <label class="form-label">Primer Nombre</label>
         <input formControlName="nompac" class="form-control" />
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div *ngIf="nacido == true" class="col-sm-6 col-lg-3">
+        <label class="form-label">Nombre de la Madre</label>
+        <input formControlName="nompac2" class="form-control" />
+      </div>
+      <div *ngIf="nacido == false" class="col-sm-6 col-lg-3">
         <label class="form-label">Segundo Nombre</label>
         <input formControlName="nompac2" class="form-control" />
       </div>
     </div>
+
     <div class="row mb-2">
       <div class="col-sm-12 col-lg-6">
         <label class="form-label">Tipo Documento</label>
@@ -55,7 +73,7 @@
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Fecha Nacimiento</label>
-        <input class="form-control" />
+        <input formControlName="fecnacp" type="date" class="form-control" />
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Edad</label>
@@ -83,16 +101,45 @@
     <div class="row mb-2">
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Municipio</label>
-        <input class="form-control" />
+
+        <select
+          formControlName="codmun"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option *ngFor="let m of LisMunicipality" [value]="m.codmun" >
+            {{ m.nommun }}
+          </option>
+
+          <!-- Otras opciones -->
+        </select>
       </div>
       <div class="col-sm-12 col-lg-6">
         <label class="form-label">Dpto</label>
-        <input class="form-control" />
+        <select
+          formControlName="coddep"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option *ngFor="let m of ListDepartment" [value]="m.coddep">
+            {{ m.nomdep }}
+          </option>
+        </select>
       </div>
 
       <div class="col-sm-6 col-lg-3">
-        <label class="form-label">Tipo</label>
-        <input class="form-control" />
+        <label class="form-label">Tipo Usuario</label>
+        <select
+          formControlName="tipo"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option>Contributivo</option>
+          <option>Subsidiado</option>
+          <option>Vinculado</option>
+          <option value="1">Particular</option>
+          <option value="0">Otros</option>
+        </select>
       </div>
     </div>
     <div class="row mb-2">
@@ -112,12 +159,12 @@
     <div class="row mb-2">
       <div class="col-8">
         <label class="form-label">Datos del Acompanante</label>
-        <input formControlName="dirpac" class="form-control" />
+        <input formControlName="acompañante" class="form-control" />
         <div class="row">
           <div class="col-12">
             <label class="form-label">Direccion</label>
             <input
-              formControlName="acompañante"
+              formControlName="dirAcompañante"
               class="form-control"
               placeholder="Direccion"
             />
@@ -143,5 +190,13 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" (click)="NewPatient()">Enviar</button>
+  <button
+    mat-raised-button
+    color="warn"
+    style="background-color: #8ed1fc; color: white"
+    (click)="NewPatient()"
+    [disabled]="formulario.invalid"
+  >
+    Enviar
+  </button>
 </mat-dialog-actions>
