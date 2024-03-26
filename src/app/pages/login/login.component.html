@@ -34,29 +34,35 @@
   </div>
 </div> -->
 
-
 <div class="cont-login">
   <div class="form-login">
     <h1 class="text-center">Inicio de sesion</h1>
     <p>Sistema Mobilsoft</p>
-    <form>
+    <form [formGroup]="formulario">
       <div class="row g-4">
         <div class="col-12">
-          <input class="form-control" type="text" placeholder="Correo" />
+          <input
+            formControlName="mail"
+            class="form-control"
+            type="text"
+            placeholder="Correo"
+          />
         </div>
         <div class="col-12">
-          <input class="form-control" type="text" placeholder="Password" />
+          <input
+            formControlName="password"
+            class="form-control"
+            type="text"
+            placeholder="Password"
+          />
         </div>
         <div class="col-12 forgot">
           <p>Forgot Password ?</p>
         </div>
         <div class="col-12">
-          <button class="btn btn-primary">Acceder</button>
+          <button class="btn btn-primary" (click)="login()">Acceder</button>
         </div>
       </div>
     </form>
   </div>
 </div>
-
-
-

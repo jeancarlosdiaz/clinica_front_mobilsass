@@ -4,7 +4,7 @@
       <div class="col-3 col-sm-6 col-lg-3">
         <label class="form-label">Sexo</label>
         <select
-          formControlName="sexpac"
+          formControlName="sexo"
           class="form-select"
           aria-label="Default select example"
         >
@@ -34,60 +34,65 @@
       </div>
     </div>
     <div class="row mb-2">
+     
       <div *ngIf="nacido == true" class="col-sm-6 col-lg-3">
-        <label class="form-label">HIJO DE</label>
-        <input value="HIJO DE" class="form-control" />
+        <label class="form-label">Hijo</label>
+        <input placeholder="HIJO DE" class="form-control" />
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Primer Apellido</label>
-        <input formControlName="ap1pac" class="form-control" />
+        <input formControlName="apellido1" class="form-control" />
       </div>
 
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Segundo Apellido</label>
-        <input formControlName="ap2pac" class="form-control" />
+        <input formControlName="apellido2" class="form-control" />
       </div>
 
       <div *ngIf="nacido == false" class="col-sm-6 col-lg-3">
         <label class="form-label">Primer Nombre</label>
-        <input formControlName="nompac" class="form-control" />
+        <input formControlName="nombrePaciente1" class="form-control" />
       </div>
-      <div *ngIf="nacido == true" class="col-sm-6 col-lg-3">
-        <label class="form-label">Nombre de la Madre</label>
-        <input formControlName="nompac2" class="form-control" />
-      </div>
-      <div *ngIf="nacido == false" class="col-sm-6 col-lg-3">
+      
+      <div  *ngIf="nacido == false" class="col-sm-6 col-lg-3">
         <label class="form-label">Segundo Nombre</label>
-        <input formControlName="nompac2" class="form-control" />
+        <input formControlName="nombrePaciente2" class="form-control" />
+      </div>
+
+      <div  *ngIf="nacido == true"   class="col-sm-6 col-lg-3">
+        <label class="form-label">Nombre de la Madre</label>
+        <input formControlName="madre" class="form-control" />
       </div>
     </div>
 
     <div class="row mb-2">
       <div class="col-sm-12 col-lg-6">
         <label class="form-label">Tipo Documento</label>
-        <select class="form-select" aria-label="Default select example">
+        <select formControlName="documento"  class="form-select" aria-label="Default select example">
           <option selected></option>
-          <option value="1">CE</option>
-          <option value="2">F</option>
+          <option value="1064981071">1064981071</option>
+          <option value="1062533033">1062533033</option>
+          <option value="1062532986">1062532986</option>
+          <option value="1063648224">1063648224</option>
         </select>
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Fecha Nacimiento</label>
-        <input formControlName="fecnacp" type="date" class="form-control" />
+        <input formControlName="nacimiento" type="date" class="form-control" />
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Edad</label>
-        <input formControlName="edapac" class="form-control" />
+        <input formControlName="edad" class="form-control" />
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-sm-12 col-lg-6">
         <label class="form-label">Direccion</label>
-        <input formControlName="dirpac" class="form-control" />
+        <input formControlName="direccionPaciente" class="form-control" />
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Telefono</label>
-        <input formControlName="telpac" class="form-control" />
+        <input formControlName="telefonoPaciente" class="form-control" />
       </div>
       <div class="col-sm-6 col-lg-3">
         <label class="form-label">Tipo Beneficiario</label>
@@ -103,7 +108,7 @@
         <label class="form-label">Municipio</label>
 
         <select
-          formControlName="codmun"
+          formControlName="idMunicipio"
           class="form-select"
           aria-label="Default select example"
         >
@@ -117,7 +122,7 @@
       <div class="col-sm-12 col-lg-6">
         <label class="form-label">Dpto</label>
         <select
-          formControlName="coddep"
+          formControlName="idDepartamento"
           class="form-select"
           aria-label="Default select example"
         >
@@ -136,7 +141,7 @@
         >
           <option>Contributivo</option>
           <option>Subsidiado</option>
-          <option>Vinculado</option>
+          <option value="2">Vinculado</option>
           <option value="1">Particular</option>
           <option value="0">Otros</option>
         </select>
@@ -164,7 +169,7 @@
           <div class="col-12">
             <label class="form-label">Direccion</label>
             <input
-              formControlName="dirAcompañante"
+              formControlName="direccionAcompañante"
               class="form-control"
               placeholder="Direccion"
             />
@@ -181,7 +186,7 @@
         <div class="row">
           <div class="col-12">
             <label class="form-label">Telefono</label>
-            <input formControlName="telAcompañante" class="form-control" />
+            <input formControlName="telelfonoAcompañante" class="form-control" />
           </div>
         </div>
       </div>

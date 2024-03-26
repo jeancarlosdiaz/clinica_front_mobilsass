@@ -44,54 +44,51 @@ export class ModalPatientComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public dataPatient: any
   ) {
     this.formulario = this.fb.group({
-
-      docpac: ['1067946194  ', Validators.required],
-      nombre: [''],
-      conhis: [''],
-      ap1pac: ['', Validators.required],
-      ap2pac: ['', Validators.required],
-      nompac: [''],
-      nompac2: ['', Validators.required],
-      dirpac: ['', Validators.required],
-      telpac: ['', Validators.required],
-      sexpac: ['', Validators.required],
-      edapac: ['', Validators.required],
+      documento: ['', Validators.required],
+      madre: [''],
+      apellido1: ['', Validators.required],
+      apellido2: ['', Validators.required],
+      nombrePaciente1: [''],
+      nombrePaciente2: [''],
+      direccionPaciente: ['', Validators.required],
+      idDepartamento: ['', Validators.required],
+      idMunicipio: ['', Validators.required],
+      telefonoPaciente: ['', Validators.required],
+      nacimiento: ['', Validators.required],
+      edad: ['', Validators.required],
+      sexo: ['', Validators.required],
       tipo: ['', Validators.required],
-      fecnacp: ['', Validators.required],
       acompañante: ['', Validators.required],
       parentesco: ['', Validators.required],
-      dirAcompañante: ['', Validators.required],
-      telAcompañante: ['', Validators.required],
-      codmun: ['', Validators.required],
-      coddep: ['', Validators.required],
+      direccionAcompañante: ['', Validators.required],
+      telelfonoAcompañante: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
     if (this.dataPatient) {
-
-      if(this.dataPatient.ap1pac != 'HIJO DE'){
-        this.nacido = false;
-      }
-      this.formulario.patchValue({
-          docpac: this.dataPatient.docpac,
-          ap1pac: this.dataPatient.ap1pac,
-          ap2pac: this.dataPatient.ap2pac,
-          nompac: this.dataPatient.nompac,
-          nompac2: this.dataPatient.nompac2,
-          dirpac: this.dataPatient.dirpac,
-          telpac: this.dataPatient.telpac,
-          sexpac: this.dataPatient.sexpac,
-          edapac: this.dataPatient.edapac,
-          tipo: this.dataPatient.tipo,
-          fecnacp: this.dataPatient.fecnacp,
-          acompañante: this.dataPatient.acompañante,
-          parentesco: this.dataPatient.parentesco,
-          dirAcompañante: this.dataPatient.dirAcompañante,
-          telAcompañante: this.dataPatient.telAcompañante,
-          codmun: this.dataPatient.codmun,
-          coddep: this.dataPatient.coddep
-      });
+   
+       this.formulario.patchValue({
+        documento: this.dataPatient.documento,
+        madre: this.dataPatient.nombrePaciente2,
+        conhis: this.dataPatient.conhis,
+        apellido1: this.dataPatient.apellido1,
+        apellido2: this.dataPatient.apellido2,
+        nombrePaciente1 : this.dataPatient.nombrePaciente1,
+        nombrePaciente2: this.dataPatient.nombrePaciente2,
+        direccionPaciente: this.dataPatient.direccionPaciente,
+        idDepartamento: this.dataPatient.idDepartamento,
+        idMunicipio: this.dataPatient.idMunicipio,
+        telefonoPaciente: this.dataPatient.telefonoPaciente,
+        nacimiento: this.dataPatient.nacimiento,
+        edad: this.dataPatient.edad,
+        sexo: this.dataPatient.sexo,
+        tipo: this.dataPatient.tipo,
+        acompañante: this.dataPatient.acompañante,
+        parentesco: this.dataPatient.parentesco,
+        direccionAcompañante: this.dataPatient.direccionAcompañante,
+        telelfonoAcompañante: this.dataPatient.telelfonoAcompañante
+      }); 
     }
     this.GetMunicipality();
     this.GetDepartment();
@@ -118,42 +115,30 @@ export class ModalPatientComponent implements OnInit {
   //CREANDO UN NUEVO PACIENTE
   NewPatient() {
     const datosFormulario: any = {
-      docpac: this.formulario.value.docpac,
-      nombre:
-        this.formulario.value.ap1pac +
-        this.formulario.value.ap2pac +
-        this.formulario.value.nompac +
-        this.formulario.value.nompac2,
-      conhis: JSON.stringify(parseInt(this.formulario.value.edapac) + 5),
-      ap1pac: this.nacido ? 'HIJO DE ' : this.formulario.value.ap1pac,
-      ap2pac: this.nacido
-        ? this.formulario.value.ap1pac
-        : this.formulario.value.ap2pac,
-      nompac: this.nacido
-        ? this.formulario.value.ap2pac
-        : this.formulario.value.nompac,
-      nompac2: this.formulario.value.nompac2,
-      dirpac: this.formulario.value.dirpac,
-      telpac: this.formulario.value.telpac,
-      sexpac: this.formulario.value.sexpac,
-      edapac: this.formulario.value.edapac,
-      tipo: this.formulario.value.tipo,
-      fecing: this.formulario.value.fecing,
-      fecsys: this.formulario.value.fecsys,
-      fecnacp: this.formulario.value.fecnacp,
-      acompañante: this.formulario.value.acompañante,
-      parentesco: this.formulario.value.parentesco,
-      dirAcompañante: this.formulario.value.dirAcompañante,
-      telAcompañante: this.formulario.value.telAcompañante,
-      codmun: this.formulario.value.codmun,
-      coddep: this.formulario.value.coddep,
-      Apellido1Madre: this.nacido ? this.formulario.value.ap1pac : '',
-      Apellido2Madre: this.nacido ? this.formulario.value.ap2pac : '',
-      Nombre1Madre: this.nacido ? this.formulario.value.nompac2 : '',
+      "documento": this.formulario.value.documento,
+      "conhis":this.formulario.value.edad,
+      "apellido1": this.nacido ? 'HIJO DE' : this.formulario.value.apellido1,
+      "apellido2":this.nacido ? this.formulario.value.apellido1 : this.formulario.value.apellido2,
+      "nombrePaciente1":this.nacido ? this.formulario.value.apellido2 : this.formulario.value.nombrePaciente1,
+      "nombrePaciente2":this.nacido ? this.formulario.value.madre : this.formulario.value.nombrePaciente2,
+      "direccionPaciente": this.formulario.value.direccionPaciente,
+      "idDepartamento": this.formulario.value.idDepartamento,
+      "idMunicipio": this.formulario.value.idMunicipio,
+      "telefonoPaciente": this.formulario.value.telefonoPaciente,
+      "nacimiento": this.formulario.value.nacimiento,
+      "edad": this.formulario.value.edad,
+      "sexo": this.formulario.value.sexo,
+      "tipo": this.formulario.value.tipo,
+      "acompañante": this.formulario.value.acompañante,
+      "parentesco": this.formulario.value.parentesco,
+      "direccionAcompañante": this.formulario.value.direccionAcompañante,
+      "telelfonoAcompañante": this.formulario.value.telelfonoAcompañante,
+      "madreApellido1": this.formulario.value.apellido1 ,
+      "madreApellido2":  this.formulario.value.apellido2,
+      "madreNombrePaciente1": this.formulario.value.madre,
     };
-    console.log(datosFormulario)
  
-    if (this.dataPatient) {
+     if (this.dataPatient) {
       this._patientServicio.Editar(datosFormulario).subscribe({
         next: (data) => {
           if (data.status) {
@@ -164,7 +149,7 @@ export class ModalPatientComponent implements OnInit {
             });
             this.modalActual.close('true');
           } else {
-            this._snackBar.open('Has ocurrido un error', 'Oops', {
+            this._snackBar.open('Has ocurrido un error al editar', 'Oops', {
               horizontalPosition: 'end',
               verticalPosition: 'top',
               duration: 3000,
@@ -192,7 +177,7 @@ export class ModalPatientComponent implements OnInit {
           });
         }
       },
-    }); 
+    });  
   }
 
   change(type: any) {

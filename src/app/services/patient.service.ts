@@ -15,7 +15,7 @@ export class PatientService {
   constructor(private http: HttpClient) {}
 
   List(): Observable<ResponseApi> {
-    return this.http.get<ResponseApi>(`${this.urlApiDeveloper}List`);
+    return this.http.get<ResponseApi>(`${this.urlApiProduction}List`);
   }
   
   Delete(obj:any): Observable<ResponseApi> {
@@ -26,6 +26,7 @@ export class PatientService {
     return this.http.post<ResponseApi>(`${this.urlApiProduction}Register` , model);
   }
   Editar(model:Paciente): Observable<ResponseApi> {
-    return this.http.post<ResponseApi>(`${this.urlApiDeveloper}Editar` , model);
+    return this.http.put<ResponseApi>(`${this.urlApiProduction}Editar` , model);
   }
 }
+

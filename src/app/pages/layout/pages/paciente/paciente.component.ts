@@ -36,14 +36,13 @@ export class PacienteComponent implements OnInit {
   ) {}
 
   displayedColumns: string[] = [
-    'conhis',
     'documento',
-    'nombre',
+    'conhis',
+    'nombrePaciente1',
     'apellido',
-    'sexo',
-    'telefono',
-    'fechaNacimiento',
-    'acciones',
+    'edad',
+    'edad',
+    'acciones'
   ];
 
   @ViewChild(MatPaginator) paginacionTabla!: MatPaginator;
