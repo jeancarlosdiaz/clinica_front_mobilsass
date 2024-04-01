@@ -18,3 +18,7 @@ mat-card {
 .row span{
     color: gray;
 }
+
+.table-card{
+    border-radius: 20px;
+}
