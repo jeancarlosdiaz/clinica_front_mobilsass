@@ -5,6 +5,7 @@ import { HospitalizacionComponent } from './pages/hospitalizacion/hospitalizacio
 import { RemisionPacienteComponent } from './pages/remision-paciente/remision-paciente.component';
 import { CamaComponent } from './pages/cama/cama.component';
 import { PacienteComponent } from './pages/paciente/paciente.component';
+import { VisitaComponent } from './pages/visita/visita.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,11 @@ export const routes: Routes = [
       {
         path: 'hospitalizacion',
         component: HospitalizacionComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'visita',
+        component: VisitaComponent,
         pathMatch: 'full',
       },
       {

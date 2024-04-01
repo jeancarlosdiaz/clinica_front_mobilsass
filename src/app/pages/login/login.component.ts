@@ -45,7 +45,6 @@ export class LoginComponent {
         if (data.status) {
           localStorage.setItem('token', data.value);
           this.router.navigate(['pages']);
-
         }else{
           this._snackBar.open(data.msgError, 'Oops', {
             horizontalPosition: 'end',

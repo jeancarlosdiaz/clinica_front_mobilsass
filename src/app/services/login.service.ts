@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-
   private urlApiProduction: string = 'http://mobilsaas.somee.com/api/user/';
   private urlApiDeveloper: string = 'http://localhost:5139/api/Patients/';
 

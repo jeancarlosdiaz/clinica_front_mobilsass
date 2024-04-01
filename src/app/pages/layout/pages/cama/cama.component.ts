@@ -27,6 +27,7 @@ export class CamaComponent implements OnInit {
       },
     });
   }
+
   getCamas() {
     this.services.camas().subscribe({
       next: (data) => {
@@ -39,6 +40,7 @@ export class CamaComponent implements OnInit {
       },
     });
   }
+
   GetCamaFiltradas(event: any) {
     const idSala = event.target.value;
     this.services.camaFiltradas(idSala).subscribe({
@@ -54,7 +56,6 @@ export class CamaComponent implements OnInit {
       },
     });
   }
-
 
   ngOnInit(): void {
     this.getCamas();
