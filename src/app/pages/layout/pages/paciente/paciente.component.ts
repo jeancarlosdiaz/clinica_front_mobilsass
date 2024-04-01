@@ -11,7 +11,7 @@ import { PatientService } from '../../../../services/patient.service';
 import { ModalPatientComponent } from '../../../../components/modal-patient/modal-patient.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-paciente',
@@ -85,7 +85,7 @@ export class PacienteComponent implements OnInit {
     const obj = {
       conhis: paciente.conhis,
     };
-
+/*
     Swal.fire({
       title: 'Deseas eliminar el paciente',
       text: paciente.nompac,
@@ -117,5 +117,6 @@ export class PacienteComponent implements OnInit {
         });
       }
     });
+    */
   }
 }
