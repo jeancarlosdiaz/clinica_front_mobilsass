@@ -1,0 +1,20 @@
+mat-card {
+  padding: 16px 16px;
+}
+
+
+.box h2{
+    margin: 0;
+    font-size: 15px;
+    font-weight:600px;
+}
+
+
+.row{  
+    background: gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+}
+.row span{
+    color: gray;
+}
